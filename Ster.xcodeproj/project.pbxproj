@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C25E0E8E1C8E3B0000315B2B /* CoreWebSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C25E0E8B1C8E3A3F00315B2B /* CoreWebSocket.framework */; };
 		C2EB53DD1C8CEAFA0093E563 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2EB53DC1C8CEAFA0093E563 /* AppDelegate.m */; };
 		C2EB53E01C8CEAFA0093E563 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2EB53DF1C8CEAFA0093E563 /* main.m */; };
 		C2EB53E31C8CEAFA0093E563 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2EB53E21C8CEAFA0093E563 /* ViewController.m */; };
@@ -14,7 +15,32 @@
 		C2EB53E81C8CEAFA0093E563 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2EB53E61C8CEAFA0093E563 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C25E0E881C8E3A3F00315B2B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C25E0E821C8E3A3E00315B2B /* CoreWebSocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB6077871324E7FB00D98B17;
+			remoteInfo = CoreWebSocketConsole;
+		};
+		C25E0E8A1C8E3A3F00315B2B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C25E0E821C8E3A3E00315B2B /* CoreWebSocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB131D711327F5C900C8F095;
+			remoteInfo = CoreWebSocket;
+		};
+		C25E0E8C1C8E3A3F00315B2B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C25E0E821C8E3A3E00315B2B /* CoreWebSocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EBB035981327F6FA005EF338;
+			remoteInfo = CoreWebSocket_iOS;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		C25E0E821C8E3A3E00315B2B /* CoreWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CoreWebSocket.xcodeproj; path = "../../Downloads/CoreWebSocket-master/CoreWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		C2EB53D81C8CEAFA0093E563 /* Ster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2EB53DB1C8CEAFA0093E563 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C2EB53DC1C8CEAFA0093E563 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -31,15 +57,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C25E0E8E1C8E3B0000315B2B /* CoreWebSocket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C25E0E831C8E3A3E00315B2B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C25E0E891C8E3A3F00315B2B /* CoreWebSocketConsole */,
+				C25E0E8B1C8E3A3F00315B2B /* CoreWebSocket.framework */,
+				C25E0E8D1C8E3A3F00315B2B /* libCoreWebSocket_iOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C2EB53CF1C8CEAFA0093E563 = {
 			isa = PBXGroup;
 			children = (
+				C25E0E821C8E3A3E00315B2B /* CoreWebSocket.xcodeproj */,
 				C2EB53DA1C8CEAFA0093E563 /* Ster */,
 				C2EB53D91C8CEAFA0093E563 /* Products */,
 			);
@@ -121,12 +159,42 @@
 			mainGroup = C2EB53CF1C8CEAFA0093E563;
 			productRefGroup = C2EB53D91C8CEAFA0093E563 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C25E0E831C8E3A3E00315B2B /* Products */;
+					ProjectRef = C25E0E821C8E3A3E00315B2B /* CoreWebSocket.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C2EB53D71C8CEAFA0093E563 /* Ster */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C25E0E891C8E3A3F00315B2B /* CoreWebSocketConsole */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = CoreWebSocketConsole;
+			remoteRef = C25E0E881C8E3A3F00315B2B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C25E0E8B1C8E3A3F00315B2B /* CoreWebSocket.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CoreWebSocket.framework;
+			remoteRef = C25E0E8A1C8E3A3F00315B2B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C25E0E8D1C8E3A3F00315B2B /* libCoreWebSocket_iOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCoreWebSocket_iOS.a;
+			remoteRef = C25E0E8C1C8E3A3F00315B2B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C2EB53D61C8CEAFA0093E563 /* Resources */ = {
@@ -287,6 +355,7 @@
 				C2EB53EE1C8CEAFA0093E563 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
