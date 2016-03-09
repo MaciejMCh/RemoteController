@@ -93,6 +93,23 @@
         case NSGestureRecognizerStateChanged: {
             CGPoint currentPoint = CGPointMake(self.totalPoint.x + (location.x - self.beginPoint.x), self.totalPoint.y + (location.y - self.beginPoint.y));
             [self sendPanProgress:currentPoint];
+            
+            
+            
+            CGFloat tolerance = [self toleranceRadius];
+            
+            CGPoint midPoint = [self midPoint];
+            CGRect toleranceRect = CGRectMake(midPoint.x - tolerance,
+                                              midPoint.y - tolerance,
+                                              tolerance * 2,
+                                              tolerance * 2);
+            location = [self absolutePoint:location];
+            
+            if (!CGRectContainsPoint(toleranceRect, location)) {
+                CGPoint fix = CGPointMake(location.x - midPoint.x, location.y - midPoint.y);
+                self.totalPoint = CGPointMake(self.totalPoint.x + fix.x, self.totalPoint.y - fix.y);
+                [self moveMouseToPoint:midPoint];
+            }
             break;
         }
         case NSGestureRecognizerStateEnded: {
@@ -102,6 +119,28 @@
         default:
             break;
     }
+}
+
+- (CGFloat)toleranceRadius {
+    return 100;
+}
+
+- (CGPoint)absolutePoint:(CGPoint)point {
+    CGPoint absoluteMid = [self midPoint];
+    CGPoint localMid = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetMidY(self.view.frame));
+    return CGPointMake(point.x + (absoluteMid.x - localMid.x), CGRectGetHeight(self.view.frame) + (absoluteMid.y - localMid.y) - point.y);
+}
+
+- (CGPoint)midPoint {
+    NSRect frameRelativeToWindow = [self.view convertRect:self.view.bounds toView:nil];
+    NSRect frameRelativeToScreen = [self.view.window convertRectToScreen:frameRelativeToWindow];
+    CGFloat neg = CGRectGetHeight([NSScreen mainScreen].frame);
+    return CGPointMake(CGRectGetMidX(frameRelativeToScreen), neg - CGRectGetMidY(frameRelativeToScreen));
+}
+
+- (void)moveMouseToPoint:(CGPoint)point {
+    CGEventRef move = CGEventCreateMouseEvent(NULL, kCGEventMouseMoved, point, kCGMouseButtonLeft);
+    CGEventPost(kCGHIDEventTap, move);
 }
 
 - (void)sendPanProgress:(NSPoint)panProgress {
