@@ -685,16 +685,28 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Li3-aU-qIS">
+                                <rect key="frame" x="-2" y="0.0" width="304" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="Boq-oo-jxW">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="Li3-aU-qIS" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="MhW-F8-Kb4"/>
                             <constraint firstItem="YaY-Cb-JQL" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="Zlq-Ch-fKS"/>
                             <constraint firstItem="YaY-Cb-JQL" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="Zpc-1x-4V1"/>
+                            <constraint firstAttribute="trailing" secondItem="Li3-aU-qIS" secondAttribute="trailing" id="dAK-3s-EVN"/>
+                            <constraint firstAttribute="bottom" secondItem="Li3-aU-qIS" secondAttribute="bottom" id="fR2-NK-Itv"/>
                             <constraint firstAttribute="bottom" secondItem="YaY-Cb-JQL" secondAttribute="bottom" id="gdb-Ez-kGJ"/>
                             <constraint firstAttribute="trailing" secondItem="YaY-Cb-JQL" secondAttribute="trailing" id="yqa-Ja-uSN"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="feedBackLabel" destination="YaY-Cb-JQL" id="heR-05-hAP"/>
+                        <outlet property="mouseFeedBackLabel" destination="Li3-aU-qIS" id="em3-WC-sUj"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

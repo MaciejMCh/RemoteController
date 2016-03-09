@@ -11,8 +11,11 @@
 
 @interface ViewController ()
 
+@property (nonatomic, assign) CGPoint beginPoint;
+@property (nonatomic, assign) CGPoint totalPoint;
 @property (nonatomic, strong) NSMutableArray<NSNumber *> *pressedButtons;
 @property (nonatomic, strong) IBOutlet NSTextField *feedBackLabel;
+@property (nonatomic, strong) IBOutlet NSTextField *mouseFeedBackLabel;
 @property (nonatomic, strong) NSEvent *eventMon;
 @property (nonatomic, assign) WebSocketRef websocket;
 
@@ -67,23 +70,45 @@
     
     NSEvent * (^monitorHandler)(NSEvent *);
     monitorHandler = ^NSEvent * (NSEvent * theEvent){
-        
-        
         unsigned int down = theEvent.type == 10 ? 1 : 0;
-        
         if (down) {
             [self downButton:[theEvent keyCode]];
         } else {
             [self upButton:[theEvent keyCode]];
         }
-        
         return theEvent;
     };
-    
     self.eventMon = [NSEvent addLocalMonitorForEventsMatchingMask:NSKeyDownMask | NSKeyUpMask
                                                      handler:monitorHandler];
+    
+    [self.view addGestureRecognizer:[[NSPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)]];
 }
 
+- (void)handlePanGesture:(NSPanGestureRecognizer *)panGesture {
+    CGPoint location = [panGesture locationInView:self.view];
+    switch (panGesture.state) {
+        case NSGestureRecognizerStateBegan:
+            self.beginPoint = location;
+            break;
+        case NSGestureRecognizerStateChanged: {
+            CGPoint currentPoint = CGPointMake(self.totalPoint.x + (location.x - self.beginPoint.x), self.totalPoint.y + (location.y - self.beginPoint.y));
+            [self sendPanProgress:currentPoint];
+            break;
+        }
+        case NSGestureRecognizerStateEnded: {
+            self.totalPoint = CGPointMake(self.totalPoint.x + (location.x - self.beginPoint.x), self.totalPoint.y + (location.y - self.beginPoint.y));
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+- (void)sendPanProgress:(NSPoint)panProgress {
+    self.mouseFeedBackLabel.stringValue = [NSString stringWithFormat:@"%.2f %.2f", panProgress.x, panProgress.y];
+    [self send:(__bridge CFStringRef)([NSString stringWithFormat:@"m %.2f %.2f", panProgress.x, panProgress.y])];
+}
+                                    
 - (void)sendDown:(NSInteger)key {
     [self send:(__bridge CFStringRef)([NSString stringWithFormat:@"1 %ld", (long)key])];
 }
@@ -96,7 +121,6 @@
     for (CFIndex i = 0; i < WebSocketGetClientCount(self.websocket); ++i) {
         WebSocketClientRef client = WebSocketGetClientAtIndex(self.websocket, i);
         WebSocketClientWriteWithFormat(client, data);
-//        WebSocketClientWriteWithFormat(client, CFSTR("%d %d"), down, [theEvent keyCode]);
     }
 }
 
