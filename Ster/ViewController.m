@@ -149,11 +149,11 @@
 }
                                     
 - (void)sendDown:(NSInteger)key {
-    [self send:(__bridge CFStringRef)([NSString stringWithFormat:@"1 %ld", (long)key])];
+    [self send:(__bridge CFStringRef)([NSString stringWithFormat:@"d %ld", (long)key])];
 }
 
 - (void)sendUp:(NSInteger)key {
-    [self send:(__bridge CFStringRef)([NSString stringWithFormat:@"0 %ld", (long)key])];
+    [self send:(__bridge CFStringRef)([NSString stringWithFormat:@"u %ld", (long)key])];
 }
 
 - (void)send:(CFStringRef)data {
