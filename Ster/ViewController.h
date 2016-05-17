@@ -10,6 +10,7 @@
 
 @interface ViewController : NSViewController
 
++ (ViewController *)viewControllerStaticReference;
+- (void)sendProperties:(NSString *)propertiesJsonString;
 
 @end
-

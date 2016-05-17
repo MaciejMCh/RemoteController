@@ -70,6 +70,7 @@ class Properties {
             let data = try NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted)
             let string = NSString(data: data, encoding: NSUTF8StringEncoding)
             NSUserDefaults.standardUserDefaults().setObject(string, forKey: "properties")
+            ViewController.viewControllerStaticReference().sendProperties(string! as String)
         } catch {
             
         }

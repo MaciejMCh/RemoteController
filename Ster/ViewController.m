@@ -23,6 +23,12 @@
 
 @implementation ViewController
 
+static ViewController *youngestViewController;
+
++ (ViewController *)viewControllerStaticReference {
+    return youngestViewController;
+}
+
 - (WebSocketRef)websocket {
     if (!_websocket) {
         _websocket = WebSocketCreateWithHostAndPort(NULL, kWebSocketHostAny, 6001, NULL);
@@ -65,6 +71,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    youngestViewController = self;
     
     self.websocket;
     
@@ -147,13 +154,17 @@
     self.mouseFeedBackLabel.stringValue = [NSString stringWithFormat:@"%.2f %.2f", panProgress.x, panProgress.y];
     [self send:(__bridge CFStringRef)([NSString stringWithFormat:@"m %.2f %.2f", panProgress.x, panProgress.y])];
 }
-                                    
+
 - (void)sendDown:(NSInteger)key {
     [self send:(__bridge CFStringRef)([NSString stringWithFormat:@"d %ld", (long)key])];
 }
 
 - (void)sendUp:(NSInteger)key {
     [self send:(__bridge CFStringRef)([NSString stringWithFormat:@"u %ld", (long)key])];
+}
+
+- (void)sendProperties:(NSString *)propertiesJsonString {
+    [self send:(__bridge CFStringRef)([NSString stringWithFormat:@"p %@", propertiesJsonString])];
 }
 
 - (void)send:(CFStringRef)data {
