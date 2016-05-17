@@ -1,0 +1,9 @@
+{
+    "properties": [
+    {
+        "name": "zPosition",
+        "type": "Number",
+        "value": 100
+    }
+    ]
+}

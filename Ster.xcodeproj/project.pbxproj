@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C229E7561CEB2B0A000741EC /* PropertiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C229E7551CEB2B0A000741EC /* PropertiesViewController.swift */; };
+		C229E75E1CEB2EE6000741EC /* PropertyViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C229E75D1CEB2EE6000741EC /* PropertyViews.swift */; };
+		C229E7601CEB2F0A000741EC /* PropertiesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C229E75F1CEB2F0A000741EC /* PropertiesModels.swift */; };
+		C229E7621CEB2FC3000741EC /* Properties.json in Resources */ = {isa = PBXBuildFile; fileRef = C229E7611CEB2FC3000741EC /* Properties.json */; };
 		C25E0E8E1C8E3B0000315B2B /* CoreWebSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C25E0E8B1C8E3A3F00315B2B /* CoreWebSocket.framework */; };
 		C2EB53DD1C8CEAFA0093E563 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2EB53DC1C8CEAFA0093E563 /* AppDelegate.m */; };
 		C2EB53E01C8CEAFA0093E563 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2EB53DF1C8CEAFA0093E563 /* main.m */; };
@@ -40,6 +44,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C229E7541CEB2B0A000741EC /* Ster-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Ster-Bridging-Header.h"; sourceTree = "<group>"; };
+		C229E7551CEB2B0A000741EC /* PropertiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertiesViewController.swift; sourceTree = "<group>"; };
+		C229E75D1CEB2EE6000741EC /* PropertyViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyViews.swift; sourceTree = "<group>"; };
+		C229E75F1CEB2F0A000741EC /* PropertiesModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertiesModels.swift; sourceTree = "<group>"; };
+		C229E7611CEB2FC3000741EC /* Properties.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Properties.json; sourceTree = "<group>"; };
 		C25E0E821C8E3A3E00315B2B /* CoreWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CoreWebSocket.xcodeproj; path = "../../Downloads/CoreWebSocket-master/CoreWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		C2EB53D81C8CEAFA0093E563 /* Ster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2EB53DB1C8CEAFA0093E563 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -64,6 +73,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C229E75A1CEB2EC4000741EC /* Properties */ = {
+			isa = PBXGroup;
+			children = (
+				C229E7551CEB2B0A000741EC /* PropertiesViewController.swift */,
+				C229E75D1CEB2EE6000741EC /* PropertyViews.swift */,
+				C229E75F1CEB2F0A000741EC /* PropertiesModels.swift */,
+				C229E7611CEB2FC3000741EC /* Properties.json */,
+			);
+			name = Properties;
+			sourceTree = "<group>";
+		};
 		C25E0E831C8E3A3E00315B2B /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +114,7 @@
 		C2EB53DA1C8CEAFA0093E563 /* Ster */ = {
 			isa = PBXGroup;
 			children = (
+				C229E75A1CEB2EC4000741EC /* Properties */,
 				C2EB53DB1C8CEAFA0093E563 /* AppDelegate.h */,
 				C2EB53DC1C8CEAFA0093E563 /* AppDelegate.m */,
 				C2EB53E11C8CEAFA0093E563 /* ViewController.h */,
@@ -102,6 +123,7 @@
 				C2EB53E61C8CEAFA0093E563 /* Main.storyboard */,
 				C2EB53E91C8CEAFA0093E563 /* Info.plist */,
 				C2EB53DE1C8CEAFA0093E563 /* Supporting Files */,
+				C229E7541CEB2B0A000741EC /* Ster-Bridging-Header.h */,
 			);
 			path = Ster;
 			sourceTree = "<group>";
@@ -140,6 +162,7 @@
 		C2EB53D01C8CEAFA0093E563 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Maciej Chmielewski";
 				TargetAttributes = {
@@ -202,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2EB53E51C8CEAFA0093E563 /* Assets.xcassets in Resources */,
+				C229E7621CEB2FC3000741EC /* Properties.json in Resources */,
 				C2EB53E81C8CEAFA0093E563 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,8 +237,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C229E75E1CEB2EE6000741EC /* PropertyViews.swift in Sources */,
 				C2EB53E31C8CEAFA0093E563 /* ViewController.m in Sources */,
+				C229E7561CEB2B0A000741EC /* PropertiesViewController.swift in Sources */,
 				C2EB53E01C8CEAFA0093E563 /* main.m in Sources */,
+				C229E7601CEB2F0A000741EC /* PropertiesModels.swift in Sources */,
 				C2EB53DD1C8CEAFA0093E563 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,11 +343,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Ster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mch.Ster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Ster/Ster-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -328,11 +358,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Ster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mch.Ster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Ster/Ster-Bridging-Header.h";
 			};
 			name = Release;
 		};
