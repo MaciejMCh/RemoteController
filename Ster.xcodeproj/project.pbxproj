@@ -11,6 +11,7 @@
 		C229E75E1CEB2EE6000741EC /* PropertyViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C229E75D1CEB2EE6000741EC /* PropertyViews.swift */; };
 		C229E7601CEB2F0A000741EC /* PropertiesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C229E75F1CEB2F0A000741EC /* PropertiesModels.swift */; };
 		C229E7621CEB2FC3000741EC /* Properties.json in Resources */ = {isa = PBXBuildFile; fileRef = C229E7611CEB2FC3000741EC /* Properties.json */; };
+		C257CF051CEB6A44009ACA44 /* NumberPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C257CF041CEB6A44009ACA44 /* NumberPicker.swift */; };
 		C25E0E8E1C8E3B0000315B2B /* CoreWebSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C25E0E8B1C8E3A3F00315B2B /* CoreWebSocket.framework */; };
 		C2EB53DD1C8CEAFA0093E563 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2EB53DC1C8CEAFA0093E563 /* AppDelegate.m */; };
 		C2EB53E01C8CEAFA0093E563 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2EB53DF1C8CEAFA0093E563 /* main.m */; };
@@ -49,6 +50,7 @@
 		C229E75D1CEB2EE6000741EC /* PropertyViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyViews.swift; sourceTree = "<group>"; };
 		C229E75F1CEB2F0A000741EC /* PropertiesModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertiesModels.swift; sourceTree = "<group>"; };
 		C229E7611CEB2FC3000741EC /* Properties.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Properties.json; sourceTree = "<group>"; };
+		C257CF041CEB6A44009ACA44 /* NumberPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberPicker.swift; sourceTree = "<group>"; };
 		C25E0E821C8E3A3E00315B2B /* CoreWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CoreWebSocket.xcodeproj; path = "../../Downloads/CoreWebSocket-master/CoreWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		C2EB53D81C8CEAFA0093E563 /* Ster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2EB53DB1C8CEAFA0093E563 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				C229E75D1CEB2EE6000741EC /* PropertyViews.swift */,
 				C229E75F1CEB2F0A000741EC /* PropertiesModels.swift */,
 				C229E7611CEB2FC3000741EC /* Properties.json */,
+				C257CF041CEB6A44009ACA44 /* NumberPicker.swift */,
 			);
 			name = Properties;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C257CF051CEB6A44009ACA44 /* NumberPicker.swift in Sources */,
 				C229E75E1CEB2EE6000741EC /* PropertyViews.swift in Sources */,
 				C2EB53E31C8CEAFA0093E563 /* ViewController.m in Sources */,
 				C229E7561CEB2B0A000741EC /* PropertiesViewController.swift in Sources */,

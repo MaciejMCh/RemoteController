@@ -839,7 +839,7 @@
                                                             <rect key="frame" x="167" y="1" width="80" height="22"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tbt-W6-HoN">
+                                                                <button translatesAutoresizingMaskIntoConstraints="NO" id="tbt-W6-HoN">
                                                                     <rect key="frame" x="-2" y="2" width="22" height="18"/>
                                                                     <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="JMe-xm-3Lv">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -854,17 +854,29 @@
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
+                                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f2T-Z2-Lf3">
+                                                                    <rect key="frame" x="-6" y="-7" width="92" height="32"/>
+                                                                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gTZ-Cs-6Bz">
+                                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                        <font key="font" metaFont="system"/>
+                                                                    </buttonCell>
+                                                                </button>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="Zok-u2-kFn" firstAttribute="leading" secondItem="vxf-ct-ys0" secondAttribute="leading" id="5g9-0W-pba"/>
                                                                 <constraint firstItem="tbt-W6-HoN" firstAttribute="centerY" secondItem="vxf-ct-ys0" secondAttribute="centerY" id="Abx-YJ-Lov"/>
+                                                                <constraint firstAttribute="trailing" secondItem="f2T-Z2-Lf3" secondAttribute="trailing" id="P4H-s6-GB9"/>
                                                                 <constraint firstItem="Zok-u2-kFn" firstAttribute="top" secondItem="vxf-ct-ys0" secondAttribute="top" id="SID-G9-v1l"/>
+                                                                <constraint firstAttribute="bottom" secondItem="f2T-Z2-Lf3" secondAttribute="bottom" id="fml-r3-Twj"/>
                                                                 <constraint firstItem="tbt-W6-HoN" firstAttribute="leading" secondItem="vxf-ct-ys0" secondAttribute="leading" id="ix5-cN-js6"/>
+                                                                <constraint firstItem="f2T-Z2-Lf3" firstAttribute="leading" secondItem="vxf-ct-ys0" secondAttribute="leading" id="kTK-fO-YsU"/>
+                                                                <constraint firstItem="f2T-Z2-Lf3" firstAttribute="top" secondItem="vxf-ct-ys0" secondAttribute="top" id="nST-0V-CaM"/>
                                                                 <constraint firstAttribute="trailing" secondItem="Zok-u2-kFn" secondAttribute="trailing" id="xaI-ML-m1v"/>
                                                                 <constraint firstAttribute="bottom" secondItem="Zok-u2-kFn" secondAttribute="bottom" id="zo1-lV-3o4"/>
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="boolValueCheck" destination="tbt-W6-HoN" id="0aX-Hb-Le5"/>
+                                                                <outlet property="numberValueButton" destination="f2T-Z2-Lf3" id="6hJ-HX-14U"/>
                                                                 <outlet property="valueTextField" destination="Zok-u2-kFn" id="H01-yJ-w5L"/>
                                                             </connections>
                                                         </tableCellView>
@@ -951,10 +963,51 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="qaw-cA-VC8" id="tlB-mE-WkL"/>
+                        <segue destination="Fb5-ee-b7G" kind="modal" identifier="numberSegueId" id="ofy-ok-P0k"/>
                     </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="75" y="1066"/>
+        </scene>
+        <!--Number Picker Controller-->
+        <scene sceneID="yR2-Tn-gan">
+            <objects>
+                <viewController id="Fb5-ee-b7G" customClass="NumberPickerController" customModule="Ster" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="RnL-L6-H6Y">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pfU-hS-5V8">
+                                <rect key="frame" x="73" y="140" width="304" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="RWh-3w-hO6"/>
+                                </constraints>
+                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="-1" maxValue="1" doubleValue="0.5" tickMarkPosition="above" sliderType="linear" id="d3H-9C-GUI"/>
+                            </slider>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9Qo-y8-UIq">
+                                <rect key="frame" x="207" y="205" width="37" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="ON5-9i-LX0">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="pfU-hS-5V8" firstAttribute="centerX" secondItem="RnL-L6-H6Y" secondAttribute="centerX" id="1bK-ZU-5aq"/>
+                            <constraint firstItem="pfU-hS-5V8" firstAttribute="centerY" secondItem="RnL-L6-H6Y" secondAttribute="centerY" id="7fZ-ax-8xg"/>
+                            <constraint firstItem="pfU-hS-5V8" firstAttribute="top" secondItem="9Qo-y8-UIq" secondAttribute="bottom" constant="47" id="W4x-Kd-oih"/>
+                            <constraint firstItem="9Qo-y8-UIq" firstAttribute="centerX" secondItem="RnL-L6-H6Y" secondAttribute="centerX" id="gFk-Ib-Fmj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="slider" destination="pfU-hS-5V8" id="bU6-z5-0mw"/>
+                        <outlet property="valueLabel" destination="9Qo-y8-UIq" id="OJy-VT-ArW"/>
+                    </connections>
+                </viewController>
+                <customObject id="ygu-Qe-8Tq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="638" y="1066"/>
         </scene>
     </scenes>
 </document>

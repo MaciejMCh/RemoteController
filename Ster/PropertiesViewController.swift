@@ -46,13 +46,20 @@ class PropertiesViewController: NSViewController, NSTableViewDataSource, NSTable
             }
             if let valueCell = cell as? PropertyValueCell {
                 valueCell.delegate = self
-                valueCell.boolValueCheck.hidden = property.type != .Bool
-                valueCell.valueTextField.hidden = property.type == .Bool
+                valueCell.boolValueCheck.hidden = true
+                valueCell.valueTextField.hidden = true
+                valueCell.numberValueButton.hidden = true
                 
                 switch property.type {
-                case .Bool: valueCell.boolValueCheck.state = (property.value as! Bool) ? 1 : 0
-                case .String: valueCell.valueTextField.stringValue = property.value as! String
-                case .Number: valueCell.valueTextField.stringValue = "\((property.value as! NSNumber).floatValue)"
+                case .Bool:
+                    valueCell.boolValueCheck.state = (property.value as! Bool) ? 1 : 0
+                    valueCell.boolValueCheck.hidden = false
+                case .String:
+                    valueCell.valueTextField.stringValue = property.value as! String
+                    valueCell.valueTextField.hidden = false
+                case .Number:
+                    valueCell.numberValueButton.title = "\((property.value as! NSNumber).floatValue)"
+                    valueCell.numberValueButton.hidden = false
                 }
             }
             if let deleteCell = cell as? DeleteCell {
@@ -77,6 +84,18 @@ class PropertiesViewController: NSViewController, NSTableViewDataSource, NSTable
         self.tableView.reloadData()
     }
     
+    var editingCell: NSTableCellView!
+    
+    func startEditingNumber(cell: NSTableCellView) {
+        editingCell = cell
+        performSegueWithIdentifier("numberSegueId", sender: nil)
+    }
+    
+    func valueChanged(value: Float) {
+        Properties.sharedInstance.changeValue(self.tableView.rowForView(editingCell), value: value)
+        self.tableView.reloadData()
+    }
+    
     func delete(cell: NSTableCellView) {
         Properties.sharedInstance.delete(self.tableView.rowForView(cell))
         self.tableView.reloadData()
@@ -85,5 +104,11 @@ class PropertiesViewController: NSViewController, NSTableViewDataSource, NSTable
     @IBAction func addAction(sender: AnyObject?) {
         Properties.sharedInstance.new()
         tableView.reloadData()
+    }
+    
+    override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
+        if let numberPickerController = segue.destinationController as? NumberPickerController {
+            numberPickerController.delegate = self
+        }
     }
 }

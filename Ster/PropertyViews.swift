@@ -53,6 +53,7 @@ class PropertyTypeCell: NSTableCellView {
 class PropertyValueCell: NSTableCellView {
     @IBOutlet weak var valueTextField: NSTextField!
     @IBOutlet weak var boolValueCheck: NSButton!
+    @IBOutlet weak var numberValueButton: NSButton!
     weak var delegate: PropertiesViewController!
     
     override func awakeFromNib() {
@@ -63,6 +64,9 @@ class PropertyValueCell: NSTableCellView {
         
         valueTextField.target = self
         valueTextField.action = #selector(textFieldChanged)
+        
+        numberValueButton.target = self
+        numberValueButton.action = #selector(editNumber)
     }
     
     func boolChanged() {
@@ -71,6 +75,10 @@ class PropertyValueCell: NSTableCellView {
     
     func textFieldChanged() {
         delegate.valueChanged(self, value: valueTextField.stringValue)
+    }
+    
+    func editNumber() {
+        delegate.startEditingNumber(self)
     }
 }
 

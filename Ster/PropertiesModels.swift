@@ -93,13 +93,7 @@ class Properties {
         save()
     }
     
-    func changeValue(index: Int, var value: AnyObject) {
-        let property = properties[index]
-        
-        if property.type == .Number {
-            value = Float(value as! String)!
-        }
-        
+    func changeValue(index: Int, value: AnyObject) {
         properties[index].value = value
         save()
     }
